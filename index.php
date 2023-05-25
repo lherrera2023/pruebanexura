@@ -12,21 +12,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h2>VALIDACION DE DATOS</h2>
+<h2>REGISTRO EMPLEADO</h2>
   <form action="procesar.php" method="post" enctype="multipart/form-data">
   <div class="form-group col-md-6"">
-    <label for="exampleInputEmail1">Usuario:</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="usuario" name='usuarioLog'>
+    <label for="exampleInputEmail1">Nombre Completo: *</label>
+    <input type="text" class="form-control" id="nombreCompleto" placeholder="nombre completo" name='nombreCompleto'>
   </div>
   <div class="form-group col-md-6"">
-    <label for="exampleInputPassword1">Contrase&ntilde;a:</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" name='passUser'>
+    <label for="exampleInputPassword1">Correo electronico: *</label>
+    <input type="email" class="form-control" id="mailEmpleado" placeholder="correo" name='mailEmpleado'>
   </div>
-  <div class="form-group col-md-6"">
-    <label for="edadUser">Edad:</label>
-    <input type="number" class="form-control" id="edadUser" placeholder="edad" name='edadUser'>
-  </div>
+
         <div class="form-check">
+        <label class="form-check-label" for="femenino">
+            Sexo : *
+          </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input class="form-check-input" type="radio" name="sexo" id="masculino" value="Masculino">
           <label class="form-check-label" for="masculino">
             Masculino
@@ -36,24 +36,16 @@
             Femenino
           </label>
         </div><br>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Administrador" value="Administrador">
-          <label class="form-check-label" for="Administrador">
-            Administrador
-          </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Moderador" value="Moderador">
-          <label class="form-check-label" for="Moderador">
-            Moderador
-          </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Editor" value="Editor">
-          <label class="form-check-label" for="Editor">
-            Editor
-          </label>
+        <div class="input-group col-md-6">
+            <select class="custom-select" id="area">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
         </div>
         <br>
-          <input type="file" name="imagenUp" id="imagenUp">
-        <br>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button type="submit" class="btn btn-primary">Registrar</button>
 </form>
 </body>
 </html>
