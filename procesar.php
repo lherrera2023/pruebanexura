@@ -4,6 +4,7 @@ require_once 'clases/Empleado.php';
 require_once 'clases/conexion.php';
 
 $empleado = new Empleado;
+$conexion = new conexion;
 
 $nom = $_REQUEST['nombreCompleto'];
 $email = $_REQUEST['mailEmpleado'];
@@ -31,6 +32,6 @@ $rol = array();
 
 
 $empleado->creaEmpleado($nom,$email,$sexo,$area,$descrip,$boletin,$rol);
-
+$conexion->registrarEmpleado($empleado);
 
 ?>
