@@ -5,8 +5,10 @@
                $_conexion = new conexion;
                //creamos la consulta SELECT
                $query= "SELECT * FROM empleado";
+               
                //enviamos la consulta para ser ejecutada
-               $datosRecibidos = $_conexion->obtenerDatos($query);
+               $datosEmpleados = $_conexion->obtenerDatos($query);
+               
                //var_dump($datosRecibidos);exit;
 ?>
 
@@ -23,7 +25,10 @@
 <div class="container">
     <br>
   <h2>Listado Empleados</h2>  
-  <button class="btn btn-primary">Agregar</button>       
+  <form action="registrar.php" method="post">
+    <button type="submit" class="btn btn-primary" name='btnagregar'>+ Agregar Empleado</button>   
+  </form>
+    
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -37,19 +42,35 @@
       </tr>
     </thead>
     <tbody>
+        <form action="procesar.php" method="post">
         <?php 
-            foreach ( $datosRecibidos as $value) {
+            foreach ( $datosEmpleados as $key => $value) {
+                if($value['sexo'] =='M'){ 
+                    $sexo = "Masculino";
+                }
+                else{
+                    $sexo = "Femenino";
+                }
+                if($value['boletin'] == 1){ 
+                    $boletin = "Si";
+                }
+                else{
+                    $boletin = "No";
+                }
+                $area = $_conexion->obtenerDatosNomArea($value['area_id']);
                 echo "<tr>
+                        <input type='hidden' value='".$value['id']."' name='idEmpleado'>
                         <td>".$value['nombre']."</td>
                         <td>".$value['email']."</td>
-                        <td>".$value['sexo']."</td>
-                        <td>".$value['boletin']."</td>
-                        <td>".$value['area_id']."</td>
-                        <td style='text-align:center;'><button class='btn btn-success'>Modificar</button></td>
-                        <td style='text-align:center;'><button class='btn btn-danger'>Eliminar</button></td>
+                        <td>".$sexo."</td>
+                        <td>".$boletin."</td>
+                        <td>".$area[0]['nombre']."</td>
+                        <td style='text-align:center;'><button class='btn btn-success' name='btnModificar'>Modificar</button></td>
+                        <td style='text-align:center;'><button class='btn btn-danger' name='btnEliminar'>Eliminar</button></td>
                 </tr>";
             }
         ?>
+        </form>
     </tbody>
   </table>
 </div>

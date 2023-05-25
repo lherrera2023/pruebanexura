@@ -28,6 +28,24 @@ class conexion {
         }
         return $this->convertirUTF8($resultArray);
     }
+    public function obtenerDatosNomArea($sqlstr){
+        $query = "select nombre from areas where id =".$sqlstr;
+        $results = $this->conexion->query($query);
+        $resultArray = array();
+        foreach ($results as $key) {
+            $resultArray[] = $key;
+        }
+        return $this->convertirUTF8($resultArray);
+    }
+    public function registrarEmpleado($sqlstr){
+        $query = "select nombre from areas where id =".$sqlstr;
+        $results = $this->conexion->query($query);
+        $resultArray = array();
+        foreach ($results as $key) {
+            $resultArray[] = $key;
+        }
+        return $this->convertirUTF8($resultArray);
+    }
 
 }
 ?> 

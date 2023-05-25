@@ -21,7 +21,8 @@
 </head>
 <body>
 <h2>REGISTRO EMPLEADO</h2>
-  <form action="registrar.php" method="post" enctype="multipart/form-data">
+<script src="js/validacampos.js"></script>
+  <form action="procesar.php" method="post" name='formRegistro'>
   <div class="form-group col-md-6"">
     <label for="exampleInputEmail1">Nombre Completo: *</label>
     <input type="text" class="form-control" id="nombreCompleto" placeholder="nombre completo" name='nombreCompleto'>
@@ -35,11 +36,11 @@
         <label class="form-check-label" for="femenino">
             Sexo : *
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-check-input" type="radio" name="sexo" id="masculino" value="Masculino">
+          <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M">
           <label class="form-check-label" for="masculino">
             Masculino
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-check-input" type="radio" name="sexo" id="femenino" value="Femenino">
+          <input class="form-check-input" type="radio" name="sexo" id="femenino" value="F">
           <label class="form-check-label" for="femenino">
             Femenino
           </label>
@@ -48,40 +49,39 @@
         <label class="form-check-label" for="area">
             Area *:
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <select class="custom-select" id="area">
+            <select class="custom-select" id="areaEmpleado" name='areaEmpleado'>
             <?php foreach ( $datosRecibidos as $value) {
-                echo "<option value=".$value['nombre'].">".$value['nombre']."</option>";
+                echo "<option value=".$value['id'].">".$value['nombre']."</option>";
             } ?>
             </select>
         </div><br>
         <div class="input-group col-md-6">
         <label for="descripcionEmpleado">Descripcion: *</label>
-        <textarea id="descripcionEmpleado" name="descripcionEmpleado" rows="4" cols="50">      
-        </textarea>
+        <textarea id="descripcionEmpleado" name="descripcionEmpleado" rows='4' cols="80" value=''></textarea>
         </div><br>
         <div class="form-check">
           <label class="form-check-label" for="Editor">
             Deseo recibir boletin informativo
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-check-input" type="checkbox" name="boletinInformativo" id="boletinInformativo" value="Editor">
+          <input class="form-check-input" type="checkbox" name="boletinInformativo" id="boletinInformativo">
         </div><br>
         <div class="form-check">
             <h4>Roles :*</h4>
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Administrador" value="Administrador">
+          <input class="form-check-input" type="checkbox" name="roles[]" id="Desarrollador" >
           <label class="form-check-label" for="Administrador">
             Profesional de Proyectos - Desarrollador
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Moderador" value="Moderador">
+          <input class="form-check-input" type="checkbox" name="roles[]" id="Gerente" >
           <label class="form-check-label" for="Moderador">
             Gerente Estrategico
           </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          <input class="form-check-input" type="checkbox" name="roles[]" id="Editor" value="Editor">
+          <input class="form-check-input" type="checkbox" name="roles[]" id="Auxiliar" >
           <label class="form-check-label" for="Editor">
             Auxiliar Administrativo
           </label>
         </div>
         <br>
-  <button type="submit" class="btn btn-primary">Registrar</button>
 </form>
+<button class="btn btn-primary" name='btnRegistrar' onclick="validaCampos()">Registrar</button>
 </body>
 </html>
