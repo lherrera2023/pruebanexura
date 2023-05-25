@@ -23,11 +23,11 @@
 <h2>REGISTRO EMPLEADO</h2>
 <script src="js/validacampos.js"></script>
   <form action="procesar.php" method="post" name='formRegistro'>
-  <div class="form-group col-md-6"">
+  <div class="form-group col-md-6">
     <label for="exampleInputEmail1">Nombre Completo: *</label>
     <input type="text" class="form-control" id="nombreCompleto" placeholder="nombre completo" name='nombreCompleto'>
   </div>
-  <div class="form-group col-md-6"">
+  <div class="form-group col-md-6">
     <label for="exampleInputPassword1">Correo electronico: *</label>
     <input type="email" class="form-control" id="mailEmpleado" placeholder="correo" name='mailEmpleado'>
   </div>

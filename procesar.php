@@ -6,6 +6,7 @@ require_once 'clases/conexion.php';
 $empleado = new Empleado;
 $conexion = new conexion;
 
+
 $nom = $_REQUEST['nombreCompleto'];
 $email = $_REQUEST['mailEmpleado'];
 $sexo = $_REQUEST['sexo'];

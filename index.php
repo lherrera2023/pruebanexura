@@ -42,7 +42,7 @@
       </tr>
     </thead>
     <tbody>
-        <form action="procesar.php" method="post">
+        <form action="modificar_eliminar.php" method="post">
         <?php 
             foreach ( $datosEmpleados as $key => $value) {
                 if($value['sexo'] =='M'){ 
@@ -59,14 +59,13 @@
                 }
                 $area = $_conexion->obtenerDatosNomArea($value['area_id']);
                 echo "<tr>
-                        <input type='hidden' value='".$value['id']."' name='idEmpleado'>
                         <td>".$value['nombre']."</td>
                         <td>".$value['email']."</td>
                         <td>".$sexo."</td>
                         <td>".$boletin."</td>
                         <td>".$area[0]['nombre']."</td>
-                        <td style='text-align:center;'><button class='btn btn-success' name='btnModificar'>Modificar</button></td>
-                        <td style='text-align:center;'><button class='btn btn-danger' name='btnEliminar'>Eliminar</button></td>
+                        <td style='text-align:center;'><button class='btn btn-success' name='btnModificar' value='".$value['id']."'>Modificar</button></td>
+                        <td style='text-align:center;'><button class='btn btn-danger' name='btnEliminar' value='".$value['id']."'>Eliminar</button></td>
                 </tr>";
             }
         ?>
